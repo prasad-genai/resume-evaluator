@@ -17,7 +17,7 @@ resume_file = st.file_uploader(label="Upload your resume PDF file", accept_multi
 
 if st.button("Evaluate"):
     if is_rate_limited():
-        st.warning("Rate limit exceeded. You are allowed 1 request per second. Please try again later.")
+        st.warning("Rate limit exceeded. You are allowed 1 request per minute. Please try again later.")
     else:
         ai.generate_response(job_description, resume_file)
  

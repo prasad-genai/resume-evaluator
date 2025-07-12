@@ -13,7 +13,7 @@ st.title("Resume Evaluator")
 job_description = st.text_area(label="Enter job description")
 
 # Resume file uploader
-resume_file = st.file_uploader(label="Upload your resume", accept_multiple_files=False)
+resume_file = st.file_uploader(label="Upload your resume PDF file", accept_multiple_files=False)
 
 if st.button("Evaluate"):
     if is_rate_limited():

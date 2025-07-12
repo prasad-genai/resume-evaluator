@@ -22,14 +22,19 @@ messages = [
 ]
 
 def generate_response(job_description, resume_file):
-    if job_description:
-        pass
-        # st.write("Job Description: ", job_description)
+    
+    if len(job_description) < 5 or not resume_file:
+        st.error("Invalid Form Values!")
+        return
         
     if resume_file:       
+        if resume_file.type != 'application/pdf':
+            st.error("Resume file should in PDF format")
+            return
+            
         doc = pymupdf.open(stream = resume_file) 
         resume_content = ""
-        for page in doc:
+        for page in doc[:2]:
             resume_content += page.get_text()
             
         # st.write("Resume content: ", resume_content)
